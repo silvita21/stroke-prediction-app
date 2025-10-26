@@ -26,6 +26,25 @@ try:
     st.success("✅ Model berhasil dimuat!")
 except Exception as e:
     st.error(f"❌ Gagal memuat model: {e}")
+# --------------------------------------------
+# ⚙️ Threshold Sensitivitas
+# --------------------------------------------
+st.sidebar.markdown("---")
+st.sidebar.subheader("⚙️ Pengaturan Threshold")
+threshold = st.sidebar.slider(
+    "Atur Sensitivitas Model (Threshold)",
+    min_value=0.0,
+    max_value=1.0,
+    value=0.49,  # default hasil Youden’s Index
+    step=0.01
+)
+
+st.sidebar.info(
+    "🔹 Threshold rendah (mis. 0.3): lebih sensitif, lebih banyak deteksi stroke\n"
+    "🔹 Threshold tinggi (mis. 0.7): lebih spesifik, tapi bisa lewatkan kasus positif"
+)
+
+# --------------------------------------------
 
 # --------------------------------------------
 # 🧾 Sidebar Input Data
@@ -49,25 +68,6 @@ input_data = pd.DataFrame({
     "hypertension": [hypertension]
 })
 
-# --------------------------------------------
-# ⚙️ Threshold Sensitivitas
-# --------------------------------------------
-st.sidebar.markdown("---")
-st.sidebar.subheader("⚙️ Pengaturan Threshold")
-threshold = st.sidebar.slider(
-    "Atur Sensitivitas Model (Threshold)",
-    min_value=0.0,
-    max_value=1.0,
-    value=0.49,  # default hasil Youden’s Index
-    step=0.01
-)
-
-st.sidebar.info(
-    "🔹 Threshold rendah (mis. 0.3): lebih sensitif, lebih banyak deteksi stroke\n"
-    "🔹 Threshold tinggi (mis. 0.7): lebih spesifik, tapi bisa lewatkan kasus positif"
-)
-
-# --------------------------------------------
 # 🔍 Prediksi
 # --------------------------------------------
 if st.sidebar.button("Prediksi Sekarang"):
