@@ -29,7 +29,6 @@ except Exception as e:
 
 # ⚙️ Threshold Sensitivitas
 # --------------------------------------------
-st.sidebar.markdown("---")
 st.sidebar.subheader("⚙️ Pengaturan Threshold")
 threshold = st.sidebar.slider(
     "Atur Sensitivitas Model (Threshold)",
