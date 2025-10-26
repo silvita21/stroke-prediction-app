@@ -34,7 +34,7 @@ threshold = st.sidebar.slider(
     "Atur Sensitivitas Model (Threshold)",
     min_value=0.0,
     max_value=1.0,
-    value=0.30,
+    value=0.10,
     step=0.01
 )
 
@@ -53,7 +53,7 @@ st.sidebar.header("🩺 Input Data Pasien")
 age = st.sidebar.number_input("Umur", min_value=1, max_value=120, value=45)
 heart_disease = st.sidebar.selectbox("Penyakit Jantung", ["Tidak", "Ya"])
 hypertension = st.sidebar.selectbox("Hipertensi", ["Tidak", "Ya"])
-avg_glucose_level = st.sidebar.number_input("Rata-rata Glukosa (mg/dL)", min_value=50.0, max_value=300.0, value=100.0)
+avg_glucose_level = st.sidebar.number_input("Rata-rata Glukosa (mg/dL)", min_value=50.0, max_value=300.0, value=250.0)
 
 # Konversi input ke numerik
 heart_disease = 1 if heart_disease == "Ya" else 0
